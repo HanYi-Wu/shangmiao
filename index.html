@@ -9,6 +9,8 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
         }
         .header {
             background-color: rgba(255, 255, 191, 0.62);
@@ -26,10 +28,12 @@
         }
         .header h1 {
             margin: 0;
+            font-size: 24px;
+            color: #333;
         }
         .content {
             margin-top: 100px;
-            padding: 10px;
+            padding: 20px;
         }
         .showcase {
             width: 100%;
@@ -37,38 +41,62 @@
             background-image: url('index.jpg');
             background-size: cover;
             background-position: center;
-            margin-bottom: 0;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .announcement {
             width: 100%;
             height: 65px;
             background-color: #e5fce5;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .announcement p {
+            margin: 0;
+            font-weight: bold;
+            color: #2c662d;
         }
         .product {
             width: 100%;
             background-color: #e7f7ff;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             display: flex;
             flex-direction: column;
             border: 1px solid #ccc;
+            border-radius: 8px;
             box-sizing: border-box;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .product-info {
-            padding: 10px;
+            padding: 20px;
             box-sizing: border-box;
+        }
+        .product-info h2 {
+            margin: 0 0 10px;
+            font-size: 20px;
+            color: #333;
+        }
+        .product-info p {
+            margin: 5px 0;
+            color: #555;
         }
         .product-image {
             width: 100%;
             overflow: hidden;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
         }
         .product-image img {
             width: 100%;
             height: auto;
             display: block;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
         }
         @media (min-width: 600px) {
             .product {
@@ -77,6 +105,17 @@
             .product-info, .product-image {
                 width: 50%;
             }
+            .product-image img {
+                border-radius: 0;
+            }
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f1f1f1;
+            font-size: 12px;
+            color: #777;
+            border-top: 1px solid #ccc;
         }
     </style>
 </head>
@@ -87,9 +126,13 @@
     <div class="content">
         <div class="showcase"></div>
         <div class="announcement">
-            <p>这是公告栏，可以放置重要信息。</p>
+            <p>公告：网页新鲜出炉</p>
         </div>
         <div id="product-list"></div>
+    </div>
+
+    <div class="footer">
+        powered by 24248
     </div>
 
     <script>
