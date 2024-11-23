@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商喵社</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: rgba(253, 253, 117, 0.62);
+            width: 100%;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-sizing: border-box;
+            border-bottom: 1px solid #ccc;
+            z-index: 1000;
+        }
+        .header h1 {
+            margin: 0;
+            position: relative;
+            top: 50px;
+        }
+        .content {
+            margin-top: 200px;
+            padding: 10px;
+        }
+        .showcase {
+            width: 100%;
+            height: 300px;
+            background-image: url('index.jpg');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 0;
+        }
+        .announcement {
+            width: 100%;
+            height: 65px;
+            background-color: lightgray;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .product {
+            width: 100%;
+            background-color: #c4f0fd;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #efefef;
+            box-sizing: border-box;
+        }
+        .product-info {
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .product-image {
+            width: 100%;
+            overflow: hidden;
+        }
+        .product-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        @media (min-width: 600px) {
+            .product {
+                flex-direction: row;
+            }
+            .product-info, .product-image {
+                width: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>商喵社·商品货架</h1>
+    </div>
+    <div class="content">
+        <div class="showcase"></div>
+        <div class="announcement">
+            <p>公告：网站新鲜出炉</p>
+        </div>
+        <div id="product-list"></div>
+    </div>
+
+    <script>
+        const shopData = {
+            "main": [
+                ["商品1", "商品介绍1", "10元", "test.jpg"],
+                ["商品2", "商品介绍2", "20元", "test.jpg"]
+            ]
+        };
+
+        const productList = document.getElementById('product-list');
+
+        shopData.main.forEach(product => {
+            const productDiv = document.createElement('div');
+            productDiv.className = 'product';
+
+            const infoDiv = document.createElement('div');
+            infoDiv.className = 'product-info';
+            infoDiv.innerHTML = `
+                <h2>${product[0]}</h2>
+                <p>${product[1]}</p>
+                <p>价格: ${product[2]}</p>
+            `;
+
+            const imageDiv = document.createElement('div');
+            imageDiv.className = 'product-image';
+            const img = document.createElement('img');
+            img.src = product[3];
+            imageDiv.appendChild(img);
+
+            productDiv.appendChild(infoDiv);
+            productDiv.appendChild(imageDiv);
+
+            productList.appendChild(productDiv);
+        });
+    </script>
+</body>
+</html>
